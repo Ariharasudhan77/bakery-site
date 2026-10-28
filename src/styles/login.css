@@ -1,0 +1,64 @@
+.login{
+  --err:#B3261E;
+  min-height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));
+  display:grid;grid-template-columns:1fr 1fr;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .login{--err:#FF9C93}}
+:root[data-theme="dark"] .login{--err:#FF9C93}
+
+.login-side{
+  background:var(--ink);color:var(--bg);
+  padding:clamp(2rem,5vw,4rem);
+  display:flex;flex-direction:column;justify-content:space-between;gap:2rem;
+}
+.login-side h1{font-size:clamp(2.6rem,6vw,4.5rem);font-weight:800;letter-spacing:-.035em;margin-bottom:1rem}
+.login-side p{margin:0;font-size:1.2rem;opacity:.8;max-width:26ch}
+.login-side small{opacity:.65}
+
+.login-main{display:grid;place-items:center;padding:2.5rem 1.25rem}
+.login-card{width:min(420px,100%)}
+.login-card h2{font-size:2.2rem;letter-spacing:-.03em}
+.login-sub{color:var(--muted);margin:.4rem 0 1.75rem}
+.login-card label{margin-bottom:.25rem}
+.login-card input[aria-invalid="true"]{border-color:var(--err)}
+.field-err{color:var(--err);font-size:.92rem;margin:.1rem 0 .9rem}
+.login-card label + .field-err{margin-top:.25rem}
+.login-card label{margin-bottom:1rem}
+.login-card label:has(+ .field-err){margin-bottom:0}
+
+.pw{position:relative}
+.pw input{padding-right:4.5rem}
+.pw-toggle{
+  position:absolute;right:.4rem;top:50%;transform:translateY(-50%);margin-top:.175rem;
+  background:none;border:0;color:var(--ink);font-weight:600;padding:.4rem .6rem;border-radius:8px;
+}
+.pw-toggle:hover{text-decoration:underline;text-underline-offset:4px}
+
+.login-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin:.25rem 0 1.5rem;font-size:.97rem}
+.login-card label.check{display:flex;align-items:center;gap:.5rem;font-weight:500;margin:0}
+.login-card label.check input{width:auto;margin:0;accent-color:var(--pistachio);width:1.1rem;height:1.1rem}
+.login-btn{width:100%;font-size:1.05rem}
+.login-btn:disabled{opacity:.6;cursor:wait}
+.login-foot{text-align:center;margin:1.5rem 0 .5rem}
+
+.signout{background:none;border:1.5px solid var(--line);color:var(--ink);border-radius:999px;padding:.5rem 1rem;font-weight:500}
+.signout:hover{border-color:var(--ink)}
+@media (max-width:760px){.signout{margin-top:.8rem}}
+
+@media (max-width:820px){
+  .login{grid-template-columns:1fr}
+  .login-side{padding:1.5rem 1.25rem;gap:1rem}
+  .login-side h1{font-size:2.4rem;margin-bottom:.4rem}
+  .login-side small{display:none}
+}
+
+.login-error{background:#F4B6B0;color:#4A0F0A;border-radius:12px;padding:.7rem .9rem;margin-bottom:1.1rem;font-weight:500}
+.link-btn{background:none;border:0;padding:0;color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.hello{font-weight:600}
+@media (max-width:760px){.hello{padding:.8rem 0;border-bottom:1px solid var(--line)}}
+.past-head{display:flex;justify-content:space-between;align-items:baseline}
+.past{padding:.8rem 0;border-bottom:1px dashed var(--line)}
+.past:last-child{border-bottom:0}
+.past .line{border:0;padding:0}
+.past small{display:block;color:var(--muted);margin-bottom:.2rem}
+.boot{min-height:100dvh;display:grid;place-items:center;color:var(--muted)}
